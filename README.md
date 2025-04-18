@@ -11,7 +11,7 @@ A server-side rendered application using Express.js with EJS templates over HTTP
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone git@github.com:guivinicius/c7-boilerplate.git
 cd c7-boilerplate
 ```
 
@@ -31,6 +31,15 @@ npm install
    - The app uses HTTPS. Make sure you have SSL certificates in the `certs` folder:
      - `cert.pem`: Your SSL certificate
      - `key.pem`: Your SSL private key
+   - If you don't have SSL certificates, you can generate self-signed certificates for development:
+     ```bash
+     # Create certs directory if it doesn't exist
+     mkdir -p certs
+     
+     # Generate self-signed certificates
+     openssl req -x509 -newkey rsa:4096 -keyout certs/key.pem -out certs/cert.pem -days 365 -nodes -subj "/CN=localhost"
+     ```
+     Note: Self-signed certificates will show security warnings in browsers. They should only be used for development purposes.
 
 ## Development
 
